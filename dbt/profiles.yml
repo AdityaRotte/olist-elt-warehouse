@@ -1,0 +1,14 @@
+# Defaults work from your laptop (warehouse exposed on localhost:5433).
+# Inside Docker, docker-compose overrides WH_HOST/WH_PORT.
+olist:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('WH_HOST', 'localhost') }}"
+      port: "{{ env_var('WH_PORT', '5433') | as_number }}"
+      user: "{{ env_var('WH_USER', 'warehouse') }}"
+      password: "{{ env_var('WH_PASSWORD', 'warehouse') }}"
+      dbname: "{{ env_var('WH_DB', 'olist') }}"
+      schema: analytics
+      threads: 4

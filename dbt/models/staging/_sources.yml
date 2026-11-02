@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: olist
+    schema: raw
+    description: Olist CSVs loaded as-is (all TEXT) by ingestion/load_olist.py
+    tables:
+      - name: customers
+        columns:
+          - name: customer_id
+            data_tests: [not_null, unique]
+      - name: sellers
+        columns:
+          - name: seller_id
+            data_tests: [not_null, unique]
+      - name: products
+        columns:
+          - name: product_id
+            data_tests: [not_null, unique]
+      - name: category_translation
+      - name: orders
+        columns:
+          - name: order_id
+            data_tests: [not_null, unique]
+      - name: order_items
+      - name: order_payments
+      - name: order_reviews

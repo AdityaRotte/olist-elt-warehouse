@@ -44,5 +44,5 @@ select * from joined
 
 {% if is_incremental() %}
 -- only rows that arrived since the last run
-where _loaded_at > (select max(_loaded_at) from {{ this }})
+where _loaded_at > (select coalesce(max(_loaded_at), '1900-01-01'::timestamptz) from {{ this }})
 {% endif %}

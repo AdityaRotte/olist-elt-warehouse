@@ -33,7 +33,7 @@ with DAG(
 
 with DAG(
     dag_id="olist_elt_daily",
-    start_date=datetime(2017, 1, 1),
+    start_date=datetime(2018, 7, 1),
     end_date=datetime(2018, 8, 31),   # Olist order volume ends around here
     schedule="@daily",
     catchup=True,                      # replays history one day at a time

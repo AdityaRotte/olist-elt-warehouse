@@ -102,11 +102,3 @@ docker compose up -d --build
 In Airflow, trigger `olist_bootstrap` once, then unpause `olist_elt_daily`. In Metabase, add a PostgreSQL database with host `warehouse`, port `5432`, database `olist`, user and password `warehouse`.
 
 Credentials above are local development defaults only.
-
-## Limitations and next steps
-
-- No SCD Type 2 dimension yet; a dbt snapshot on sellers or products is the planned addition.
-- The `geolocation` table is loaded into `raw` but not modeled.
-- Order status changes are not simulated, so late-arriving updates are only covered by the delete-and-reload behavior of the loader.
-- Single-node Postgres and Airflow `LocalExecutor`; not sized for production.
-- Planned: GitHub Actions running `dbt build` on pull requests, and a BigQuery or Snowflake adapter swap.
